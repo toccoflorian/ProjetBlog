@@ -1,0 +1,6 @@
+@ProjetBlogAPI_HostAddress = https://localhost:7071
+
+GET {{ProjetBlogAPI_HostAddress}}/
+Accept: application/json
+
+###

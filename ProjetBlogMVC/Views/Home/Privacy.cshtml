@@ -1,0 +1,56 @@
+﻿@model GetArticleResponseDTO
+@inject UserManager<AppUser> UserManager
+
+
+
+<div class="reactionContainer bg-primary d-flex justify-content-between shadow" style="">
+    <div class="likeContainer">
+        <img src="~/assets/icons/like.svg" height="20px" width="20px" />
+        <p>@Model.NbLikes</p>
+    </div>
+
+    <div class ="disLikeContainer">
+        <img src="~/assets/icons/like.svg" height="20px" width="20px" />
+        <p>@Model.NbDisLikes</p>
+    </div>
+
+    <div class="supportContainer">
+        <img src="~/assets/icons/support.svg" height="25px" width="25px" />
+        <p>@Model.NbSupports</p>
+    </div>
+</div>
+
+<style>
+    .reactionContainer{
+        border-radius: 15px;
+        width: 200px;
+        padding: 5px 20px;
+
+        div{
+            cursor: pointer;
+            font-size: 10px;
+            background-color: lightcyan;
+            border-radius: 2.5px;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            p{
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        .disLikeContainer{
+            
+            img{
+                rotate: 180deg;
+                margin-top: 4px;
+
+            }
+            
+        }
+    }
+</style>
+

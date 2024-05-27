@@ -1,0 +1,17 @@
+﻿.customStyle { 
+    article {
+        .articleDescriptionContainer{
+            display: flex;
+            margin: 0 auto 0 auto;
+
+            .articleImage {
+                max-height: 650px;
+                max-width: 40%;
+            }
+            div{
+
+                text-align: center;
+            }
+        } 
+    }
+}

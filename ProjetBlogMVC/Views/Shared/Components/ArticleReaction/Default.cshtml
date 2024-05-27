@@ -1,0 +1,25 @@
+﻿
+@model GetArticleResponseDTO
+
+<link rel="stylesheet" href="~/css/ViewComponents/ArticleReaction.css" />
+
+
+
+<div id="articleReactionContainer" class="articleReactionContainer d-flex justify-content-between shadow">
+    <div class="likeContainer" id="likeContainer" data-article-id="@Model.Id">
+        <img src="~/assets/icons/like.svg" height="20px" width="20px" alt="Une main avec le pouce pointé vers le haut." />
+        <p>@Model.NbLikes</p>
+    </div>
+
+    <div class="disLikeContainer" id="dislikeContainer" data-article-id="@Model.Id">
+        <img src="~/assets/icons/like.svg" height="20px" width="20px" alt="Une main avec le pouce pointé vers le bas." />
+        <p>@Model.NbDisLikes</p>
+    </div>
+
+    <div class="supportContainer" id="supportContainer" data-article-id="@Model.Id">
+        <img src="~/assets/icons/support.svg" height="25px" width="25px" alt="Une main qui soutien quelque chose." />
+        <p>@Model.NbSupports</p>
+    </div>
+</div>
+
+

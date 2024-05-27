@@ -1,0 +1,31 @@
+﻿
+
+@model WriteArticleViewModel
+
+<h1>Ecrire un article</h1>
+
+<form asp-action="Write">
+    <label>Categorie</label>
+    <select name="CategoryId">
+        @foreach(GetCategoryDTO category in Model.Categories)
+        {
+            <option value="@category.Id">@category.Label</option>
+        }
+    </select>
+   
+    <label>Titre</label><br />
+    <input type="text" name="Title" value="@Model.Title" class="w-50 h-25" /><br />
+
+    <label>Description</label>
+    <textarea type="text" name="Description" class="w-100">@Model.Description</textarea><br />
+
+    <label>Contenu</label>
+    <textarea type="text" name="Content" class="w-100">@Model.Content</textarea>
+    <br />
+
+    <label>Image URL</label><br />
+    <input type="text" name="ImageURL" value="@Model.ImageURL" class="w-50 h-25" /><br />
+
+    <button>Modifier</button>
+    <button>Annuler</button>
+</form>

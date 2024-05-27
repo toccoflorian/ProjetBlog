@@ -1,0 +1,17 @@
+{
+  "name": "projetblogmvc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass:watch": "sass --watch ./wwwroot/scss/:./wwwroot/css/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.77.2"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
+}

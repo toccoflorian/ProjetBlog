@@ -1,0 +1,111 @@
+﻿@model List<GetArticleResponseDTO>
+@{
+    ViewData["Title"] = "Mes Articles";
+}
+@section styles{
+    <link rel="stylesheet" href="~/css/Article/GetByAuthor.css"/>
+}
+
+@if(@TempData["Message"] != null)
+{
+    <div id="liveAlertPlaceholder"></div>
+    <script>
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        const appendAlert = (message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+                `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                `   <div>${message}</div>`,
+                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                '</div>'
+            ].join('')
+
+            alertPlaceholder.append(wrapper)
+        }
+        appendAlert('@TempData["Message"]', 'success')
+
+    </script>
+}
+
+
+
+<h1>Mes Articles</h1>
+<a asp-action="Write">Ecrire un article</a>
+<div class="container d-flex flex-wrap justify-content-between">
+        @foreach (GetArticleResponseDTO article in @Model)
+    {
+        <div class="card" style="width: 18rem;">
+
+            <img src="@article.ImageURL" class="card-img-top" alt="...">
+
+            <div class="card-body">
+                <h5 class="card-title">@article.Titre</h5>
+                <p class="card-text">
+                    @article.Description
+                </p>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <span class="fw-bold">Author:</span>
+                    @article.AuthorFirstname @article.AuthorLastname
+                    <br />
+                    <span class="fw-bold">Edité le </span>
+                    @article.EditionDate
+                    <br />
+                    @if(article.UpdatedDate != null)
+                    {
+                        <span class="fw-bold">Modifié le </span>
+                        @article.UpdatedDate
+                    }
+                        
+                </li>
+
+                <li class="list-group-item">
+                    <span class="fw-bold">Commentaires: </span>
+                    @article.NbComments
+                </li>
+
+                <li class="list-group-item">
+                    <span class="fw-bold">Lectures: </span>
+                    @article.NbReads
+                </li>
+
+                <li class="list-group-item">
+                    <span class="fw-bold">Likes: </span>
+                    @article.NbLikes<br />
+                    <span class="fw-bold">DisLikes: </span>
+                    @article.NbDisLikes<br />
+                    <span class="fw-bold">Supports: </span>
+                    @article.NbSupports
+                </li>
+            </ul>
+
+            <div class="card-body">
+                    @*href='@Url.Action("Update", "Article", new{articleId = article.Id})'*@
+                <a 
+
+                    asp-controller="Article"
+                    asp-action="Update"
+                    asp-route-articleId="@article.Id"
+
+                    class="btn btn-outline-primary"
+                >
+                    Modifier l'article
+                </a>
+                <a 
+                    href='@Url.Action("Delete", "Article", new{articleId = article.Id})' 
+                    class="card-link"
+                >
+                    Supprimmer
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+
+    
+<style>
+
+</style>

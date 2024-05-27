@@ -1,0 +1,29 @@
+﻿@model GetArticleDetailResponseDTO
+@{
+    ViewData["Title"] = Model.Title;
+}
+@section styles{
+    <link rel="stylesheet" href="~/css/Article/Read.css"/>
+}
+ @section Scripts{
+    <script type="module" src="/js/controllers/ArticleReactionController.js" ></script>
+    }
+<article>
+
+    <div class="articleDescriptionContainer">
+        <img class="articleImage img-fluid" src="@Model.ImageURL" />
+
+        <div>
+            <h1>@Model.Title</h1>
+            <p onclick="handleToggleLike(@Model.Id)">@Model.Description</p>
+
+            <div id="articleReactionBarContainer">
+                @await Component.InvokeAsync("ArticleReaction", new GetArticleResponseDTO(Model))
+            </div>
+        </div>
+    </div>
+    
+
+    <p>@Model.Content</p>
+
+</article>

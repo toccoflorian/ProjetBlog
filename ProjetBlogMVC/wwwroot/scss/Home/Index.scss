@@ -1,0 +1,14 @@
+﻿.customStyle {
+    .container{
+        .card{
+            &:hover{
+                transform: scale(1.01);
+                box-shadow: 50px 50px 50px red;
+            }
+            img{
+                max-height: 350px;
+                object-fit: cover;
+            }
+        }
+    }
+}

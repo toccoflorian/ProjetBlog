@@ -1,0 +1,35 @@
+﻿@model List<GetArticleResponseDTO>
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section styles{
+    <link rel="stylesheet" href="~/css/Home/Index.css"/>
+}
+<h1>Bienvenue</h1>
+
+
+<div class="container d-flex flex-wrap justify-content-evenly">
+   
+    @foreach (GetArticleResponseDTO article in @Model)
+    {
+        <div class="card mb-5 shadow mx-auto" style="width:325px">
+
+            <img src="@article.ImageURL" class="card-img-top" alt="">
+
+            @await Component.InvokeAsync("ArticleReaction" , article)
+
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title">@article.Titre</h5>
+                    <p class="card-text fs-6">@article.Description</p>
+                </div>
+                <a asp-action="Read" asp-controller="Article" asp-route-articleId="@article.Id" class="btn btn-primary">Lire l'article</a>
+            </div>
+
+
+
+            
+        </div>
+
+    }
+</div>

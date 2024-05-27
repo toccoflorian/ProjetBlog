@@ -1,0 +1,27 @@
+.articleReactionContainer {
+  border-radius: 30px;
+  width: 150px;
+  padding: 2px 2px;
+  background-color: burlywood;
+}
+.articleReactionContainer div {
+  cursor: pointer;
+  font-size: 10px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.articleReactionContainer div p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.articleReactionContainer .disLikeContainer img {
+  margin-top: 5px;
+  rotate: 180deg;
+}
+
+/*# sourceMappingURL=ArticleReaction.css.map */

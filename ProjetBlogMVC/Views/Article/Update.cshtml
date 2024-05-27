@@ -1,0 +1,43 @@
+﻿@model GetArticleResponseDTO
+@{
+    ViewData["Title"] = "Modifier un article";
+}
+@section styles{
+    <link rel="stylesheet" href="~/css/Article/Update.css"/>
+}
+
+
+<h1>Modifier un article</h1>
+
+@if (@ViewBag.Message != null)
+{
+    <p>
+        @ViewBag.Message
+    </p>
+    <p>
+        @ViewBag.InnerMessage
+    </p>
+}
+else
+{
+    <form asp-action="Update">
+        <input hidden name="articleId" value="@Model.Id" />
+        <label>Titre</label><br />
+        <input type="text" name="title" value="@Model.Titre" class="w-50 h-25" /><br />
+
+        <label>Description</label>
+        <textarea type="text" name="description" class="w-100">@Model.Description</textarea><br />
+
+        <label>Contenu</label>
+        <textarea type="text" name="content" class="w-100">@Model.Content</textarea>
+        <br />
+
+        <label>Image URL</label><br />
+        <input type="text" name="imageURL" value="@Model.ImageURL" class="w-50 h-25" /><br />
+
+        <button>Modifier</button>
+        <button>Annuler</button>
+    </form>
+}
+
+

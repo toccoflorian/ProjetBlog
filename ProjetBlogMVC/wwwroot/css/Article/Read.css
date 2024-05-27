@@ -1,0 +1,13 @@
+.customStyle article .articleDescriptionContainer {
+  display: flex;
+  margin: 0 auto 0 auto;
+}
+.customStyle article .articleDescriptionContainer .articleImage {
+  max-height: 650px;
+  max-width: 40%;
+}
+.customStyle article .articleDescriptionContainer div {
+  text-align: center;
+}
+
+/*# sourceMappingURL=Read.css.map */
